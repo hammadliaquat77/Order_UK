@@ -36,7 +36,7 @@ function PopularCategories() {
                   className=" sm:basis-1/3 md:basis-1/4 lg:basis-1/6"
                 >
                   <div className="p-2">
-                    <Card className="h-[220px] border-0">
+                    <Card className="md:h-[160px] h-[220px] border-0">
                       <CardContent className="h-full p-0">
             <div className='h-full w-full rounded-lg bg-white  flex flex-col justify-end items-center'
             >
