@@ -39,7 +39,7 @@ function PopularCategories() {
                       <CardContent className="h-full p-0">
             <div className='h-full w-full rounded-lg bg-white  flex flex-col justify-end items-center'
             >
-               <Image src={item.Image} height={200} width={300} className='rounded-t-md w-full' />
+               <Image src={item.Image} height={200} width={300} className='rounded-t-md h-[190px] w-full ' />
                <div className='bg-[#FC8A06] w-full flex flex-col justify-center items-center h-12 p-6 sm:p-0 md:p-0 rounded-b-lg '>
                    <h1 className='text-white font-bold tracking-tighter'>{item.title}</h1>
                    <span className='text-white ml-4 text-sm font-light'>{item.resturent}</span>
@@ -61,39 +61,3 @@ function PopularCategories() {
 
 export default PopularCategories
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// <div className='h-[200px] w-[200px] rounded-lg bg-amber-600  flex flex-col justify-end items-center'>
-//              <div className='mb-16'>hello</div>
-//              <div className='bg-[#03081F] w-full flex flex-col h-12'>
-//                  <h1 className='text-[#FC8A06] font-bold ml-4 tracking-tighter'>Burger and FastFood</h1>
-//                  <span className='text-white ml-4 text-sm font-light'>Resturent</span>
-//              </div>
-//          </div>

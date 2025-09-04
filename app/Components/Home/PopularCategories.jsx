@@ -40,7 +40,7 @@ function PopularCategories() {
                       <CardContent className="h-full p-0">
             <div className='h-full w-full rounded-lg bg-white  flex flex-col justify-end items-center'
             >
-               <Image src={item.Image} height={200} width={300} className='rounded-md' />
+               <Image src={item.Image} height={200} width={300} className='rounded-md h-[190px] w-full' />
                <div className='bg-[#03081F] w-full flex flex-col h-12 rounded-b-lg '>
                    <h1 className='text-[#FC8A06] font-bold ml-4 tracking-tighter'>{item.title}</h1>
                    <span className='text-white ml-4 text-sm font-light'>{item.resturent}</span>
