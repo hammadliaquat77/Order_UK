@@ -8,7 +8,7 @@ import PopularResturent from "./Components/Home/PopularResturent";
 import Ordering_App from "./Components/Home/Ordering_App";
 import About from "./Components/Home/About";
 import Count from "./Components/Home/Count";
-import Footer from "./Components/Home/Footer";
+import Footer from "./Components/Footer";
 
 export default function Home() {
   return (

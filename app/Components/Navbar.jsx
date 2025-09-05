@@ -5,6 +5,7 @@ import { FiMenu } from "react-icons/fi";
 import { HiXMark } from "react-icons/hi2";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { ShoppingCart } from "lucide-react";
 
 function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -38,22 +39,31 @@ function Header() {
             Home
           </Link>
           <Link
-            href="/"
+            href="/Pages/Menu"
             className="text-md hover:text-gray-500 transition duration-300 font-medium"
           >
-            About
+            Menu
           </Link>
         </nav>
 
         {/* Right: Login Image (Desktop only) */}
-        <div className="hidden md:block">
-          <Image
+        <div className="flex items-center gap-5">
+         <div className="hidden md:block">
+          <Link href="/Pages/Login">
+           <Image
             src="/HomeImages/Login.png"
             alt="login"
             width={150}
             height={60}
             className="cursor-pointer"
-          />
+            />
+          </Link>
+         </div>
+         <div className="hidden md:block">
+          <Link href="/">
+            <ShoppingCart size={26} />
+          </Link>
+         </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -76,20 +86,26 @@ function Header() {
             Home
           </Link>
           <Link
-            href="/about"
+            href="/Menu"
             onClick={() => setIsOpen(false)}
             className="text-lg hover:text-gray-400"
           >
-            About
+            Menu
           </Link>
 
+         <Link href="/Pages/Login">
           <Image
             src="/HomeImages/Login.png"
             alt="login"
             width={150}
             height={60}
             className="mt-4"
-          />
+            />
+          </Link>
+
+          <Link href="/">
+            <ShoppingCart size={26} />
+          </Link>
         </div>
       )}
     </header>
