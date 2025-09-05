@@ -5,7 +5,7 @@ import Image from 'next/image';
 function About() {
   return (
     <section className='w-[85%] mx-auto md:pt-10 pt-10'>
-       <div className='h-[650px] w-full bg-[#F4F4F4] rounded-md md:p-16 p-6'>
+       <div className=' w-full bg-[#F4F4F4] rounded-md md:p-16 p-6'>
           <h1 className='md:text-2xl text-md font-bold md:mb-10 hidden md:block lg:block'>Know more about us!</h1>
           <h1 className='md:text-2xl text-md font-bold mb-5 md:hidden lg:hidden'>about us!</h1>
 
