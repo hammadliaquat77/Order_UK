@@ -86,7 +86,7 @@ function Header() {
             Home
           </Link>
           <Link
-            href="/Menu"
+            href="/Pages/Menu"
             onClick={() => setIsOpen(false)}
             className="text-lg hover:text-gray-400"
           >
