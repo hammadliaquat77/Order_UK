@@ -6,10 +6,14 @@ import { HiXMark } from "react-icons/hi2";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
+import { useCart } from "../context/CartContext";
 
 function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const { cartItems } = useCart(); // 👈 context se cartItems nikala
+  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0); // total items
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white text-black shadow-md z-50">
@@ -30,40 +34,40 @@ function Header() {
           />
         </motion.div>
 
-{/* Dwsktop */}
+        {/* Desktop Menu */}
         <nav className="hidden md:flex space-x-8">
-          <Link
-            href="/"
-            className="text-md hover:text-gray-500 transition duration-300 font-medium"
-          >
+          <Link href="/" className="text-md hover:text-gray-500 transition duration-300 font-medium">
             Home
           </Link>
-          <Link
-            href="/Pages/Menu"
-            className="text-md hover:text-gray-500 transition duration-300 font-medium"
-          >
+          <Link href="/Menu" className="text-md hover:text-gray-500 transition duration-300 font-medium">
             Menu
           </Link>
         </nav>
 
-        {/* Right: Login Image (Desktop only) */}
+        {/* Right Section */}
         <div className="flex items-center gap-5">
-         <div className="hidden md:block">
-          <Link href="/Pages/Login">
-           <Image
-            src="/HomeImages/Login.png"
-            alt="login"
-            width={150}
-            height={60}
-            className="cursor-pointer"
-            />
-          </Link>
-         </div>
-         <div className="hidden md:block">
-          <Link href="/">
-            <ShoppingCart size={26} />
-          </Link>
-         </div>
+          <div className="hidden md:block">
+            <Link href="/Login">
+              <Image
+                src="/HomeImages/Login.png"
+                alt="login"
+                width={150}
+                height={60}
+                className="cursor-pointer"
+              />
+            </Link>
+          </div>
+
+          <div className="relative hidden md:block">
+            <Link href="/Cart">
+              <ShoppingCart size={26} />
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -74,38 +78,36 @@ function Header() {
         </div>
       </div>
 
-
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Dropdown */}
       {isOpen && (
         <div className="md:hidden bg-black h-screen text-white w-full flex flex-col justify-center items-center py-6 space-y-4">
-          <Link
-            href="/"
-            onClick={() => setIsOpen(false)}
-            className="text-lg hover:text-gray-400"
-          >
+          <Link href="/" onClick={() => setIsOpen(false)} className="text-lg hover:text-gray-400">
             Home
           </Link>
-          <Link
-            href="/Pages/Menu"
-            onClick={() => setIsOpen(false)}
-            className="text-lg hover:text-gray-400"
-          >
+          <Link href="/Menu" onClick={() => setIsOpen(false)} className="text-lg hover:text-gray-400">
             Menu
           </Link>
-
-         <Link href="/Pages/Login">
-          <Image
-            src="/HomeImages/Login.png"
-            alt="login"
-            width={150}
-            height={60}
-            className="mt-4"
+          <Link href="/Login" onClick={() => setIsOpen(false)}>
+            <Image
+              src="/HomeImages/Login.png"
+              alt="login"
+              width={150}
+              height={60}
+              className="mt-4"
             />
           </Link>
 
-          <Link href="/">
-            <ShoppingCart size={26} />
-          </Link>
+          {/* Mobile Cart */}
+          <div className="relative">
+            <Link href="/Cart" onClick={() => setIsOpen(false)}>
+              <ShoppingCart size={26} />
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+          </div>
         </div>
       )}
     </header>
